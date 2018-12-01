@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +23,14 @@ public class TaskRow : MonoBehaviour {
         for(int i = 0; i < newSprites.Length; i++)
         {
             Sprites[i].sprite = newSprites[i];
+        }
+    }
+
+    internal void SetColors(IList<Color> colors)
+    {
+        for(int i = 0; i < colors.Count; i++)
+        {
+            Sprites[i].color = colors[i];
         }
     }
 }
