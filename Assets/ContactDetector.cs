@@ -6,7 +6,7 @@ public class ContactDetector : MonoBehaviour {
 
     public PlayerController controller;
     public CircleCollider2D collider;
-    public bool isInAir = true;
+    public bool isInTheAir = true;
 
 	void Start () {
         collider = GetComponent<CircleCollider2D>();
@@ -14,17 +14,16 @@ public class ContactDetector : MonoBehaviour {
 	}
 	
 	void Update () {
-        Debug.Log(isInAir);
 	}
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        isInAir = false;
+        isInTheAir = false;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isInAir = true;
+        isInTheAir = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

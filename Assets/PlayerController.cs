@@ -7,10 +7,15 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody2D rb;
     public bool canJump = true;
     public bool canReJump = true;
-    public float jumpDelay = 0;
+    float jumpDelay = 0;
     ContactDetector contactDetector;
+    public float shieldAmount = 1;
+    public bool canUseShield = true;
+    bool shieldActivated = false;
+    public bool isBot = false;
+    public GameObject shieldSprite;
 
-    bool CanJump
+    public bool CanJump
     {
         get
         {
@@ -20,13 +25,21 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    bool CanReJump
+    public bool CanReJump
     {
         get
         {
             if (!canJump && canReJump)
                 return true;
             return false;
+        }
+    }
+
+    public bool isInTheAir
+    {
+        get
+        {
+            return contactDetector.isInTheAir;
         }
     }
 
@@ -43,11 +56,42 @@ public class PlayerController : MonoBehaviour {
         rb.velocity = new Vector2(velocity, rb.velocity.y - Time.deltaTime * 25f);
         jumpDelay += Time.deltaTime;
 
-        if (Input.GetButtonDown("Action1") && CanJump && !contactDetector.isInAir)
+        if (Input.GetButtonDown("Action1") && CanJump && !contactDetector.isInTheAir)
             jump();
         else if (Input.GetButtonDown("Action1") && canReJump)
             reJump();
+        if (!isBot)
+            useShield(Input.GetButton("Action4"));
+        handleShield();
         contactDetector.collider.enabled = (rb.velocity.y > 0 ? false : true);
+    }
+
+    public void useShield(bool use = false)
+    {
+        Debug.Log(use);
+        if (canUseShield)
+            shieldActivated = use;
+    }
+
+    public void handleShield()
+    {
+        if (!canUseShield && shieldAmount >= 1)
+            canUseShield = true;
+        else
+            shieldActivated = false;
+        if (shieldAmount <= 0)
+        {
+            shieldAmount = 0;
+            canUseShield = false;
+        }
+        if (shieldActivated)
+        {
+            shieldAmount -= Time.deltaTime;
+        }
+        if (shieldActivated)
+            shieldSprite.SetActive(true);
+        else
+            shieldSprite.SetActive(false);
     }
 
     public void jump()
