@@ -8,6 +8,7 @@ public class Task {
     public Player Player;
     public string Name;
     public Sprite Icon;
+    public bool done = false;
 
     public Task(Player player, Sprite sprite, string name)
     {

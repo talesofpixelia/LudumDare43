@@ -16,9 +16,9 @@ public class CommandController : MonoBehaviour {
     public float TimeLeft;
     public float ChangeSpeed;
     public int State;
-    public int PlayerCount;
-    public Player[] Players = new Player[4];
+    public Player[] Players;
     public Task[] ActiveTasks = new Task[4];
+    public int PlayerOrder = 0;
     
     const int CHANGING = 0;
     const int READY = 1;
@@ -101,9 +101,19 @@ public class CommandController : MonoBehaviour {
         return tasks;
     }
 
-    public int DoTask (int player, string action)
+    public int DoTask (int playerId, string action)
     {
-        return 0;
+        if (State == CHANGING) return 0;
+        int score = -50;
+        for(int i = 0; i < ActiveTasks.Length; i++)
+        {
+            if (ActiveTasks[i].Player.Id == playerId && ActiveTasks[i].Name == action && !ActiveTasks[i].done)
+            {
+                score = 300 - 75 * PlayerOrder;
+                ActiveTasks[i].done = true;
+            }
+        }
+        return score;
     }
 
 }
