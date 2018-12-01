@@ -16,14 +16,18 @@ public class command_controller : MonoBehaviour {
     public float ChangeSpeed;
     public int State;
     public int PlayerCount;
+    public Color[] PlayerColor = new Color[4];
     const int CHANGING = 0;
     const int READY = 1;
+
 
 	// Use this for initialization
 	void Start () {
         State = READY;
         TopRow.SetSymbols(RollNewTasks(PlayerCount));
+        TopRow.SetColors(PlayerColor.Shuffle());
         BotRow.SetSymbols(RollNewTasks(PlayerCount));
+        BotRow.SetColors(PlayerColor.Shuffle());
         TimeLeft = TimePerTask;
 	}
 	
@@ -66,6 +70,7 @@ public class command_controller : MonoBehaviour {
         TimeLeft = TimePerTask;
         State = READY;
         TopRow.SetSymbols(RollNewTasks(PlayerCount));
+        TopRow.SetColors(PlayerColor.Shuffle());
         
     }
 

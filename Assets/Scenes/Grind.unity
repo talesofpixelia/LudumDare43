@@ -232,7 +232,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -692,10 +692,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SymbolSprites:
-  - {fileID: 21300002, guid: a5cdc0c10f7d21840a609e5f2cbe53d4, type: 3}
-  - {fileID: 21300004, guid: a5cdc0c10f7d21840a609e5f2cbe53d4, type: 3}
-  - {fileID: 21300006, guid: a5cdc0c10f7d21840a609e5f2cbe53d4, type: 3}
-  - {fileID: 21300000, guid: a5cdc0c10f7d21840a609e5f2cbe53d4, type: 3}
+  - {fileID: 21300000, guid: 073892f59cd8bf14ca95897ba25d0743, type: 3}
+  - {fileID: 21300000, guid: 5357cc4c213c7cb46b5b35c17a614432, type: 3}
+  - {fileID: 21300000, guid: b57eeac7cd61d774ab734c3d02e7b72c, type: 3}
+  - {fileID: 21300000, guid: 78a11f4dd700a7548a1e068baeb76206, type: 3}
   EmptySymbol: {fileID: 0}
   TopRow: {fileID: 80131575}
   BotRow: {fileID: 884075209}
@@ -707,6 +707,11 @@ MonoBehaviour:
   ChangeSpeed: 1
   State: 0
   PlayerCount: 4
+  PlayerColor:
+  - {r: 0.72156864, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0.08719444, b: 1, a: 1}
+  - {r: 0, g: 0.7075472, b: 0.07283176, a: 1}
+  - {r: 0.9716981, g: 0.95856005, b: 0, a: 1}
 --- !u!1 &2103958637
 GameObject:
   m_ObjectHideFlags: 0
