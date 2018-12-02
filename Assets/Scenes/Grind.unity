@@ -951,11 +951,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5357cc4c213c7cb46b5b35c17a614432, type: 3}
   - {fileID: 21300000, guid: b57eeac7cd61d774ab734c3d02e7b72c, type: 3}
   - {fileID: 21300000, guid: 78a11f4dd700a7548a1e068baeb76206, type: 3}
+  - {fileID: 21300000, guid: 33c455f94da19e64f8d9d801888407ff, type: 3}
+  - {fileID: 21300000, guid: 3d9bea85a93e3bc489ea775e89c8ca7b, type: 3}
+  - {fileID: 21300000, guid: a56b1268fbd13d244bca5e2a8dc5a9b6, type: 3}
+  - {fileID: 21300000, guid: 1ff73f2cecdcb1c44bfbc435b5a4cf21, type: 3}
   TaskNames:
   - Action1
   - Action2
   - Action3
   - Action4
+  - Up
+  - Down
+  - Left
+  - Right
   EmptySymbol: {fileID: 0}
   TopRow: {fileID: 80131575}
   BotRow: {fileID: 884075209}
