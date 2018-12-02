@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4935718728758084}
   - component: {fileID: 212191319941607640}
   m_Layer: 0
-  m_Name: BlueBody
+  m_Name: GreenBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 212304130713851996}
   - component: {fileID: 95211897554063826}
   m_Layer: 0
-  m_Name: Player
+  m_Name: player_green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1310727830423064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4935718728758084}
@@ -260,7 +260,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 169a6277830218d4d82b45bad5a56dcc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e0dcf3629c8772f45bcf9c1f84b415e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -305,7 +305,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 34331f31a8e842d4e93a0512a6fd115b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
