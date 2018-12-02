@@ -5,34 +5,32 @@ using UnityEngine;
 public class WeaponAnimation : MonoBehaviour {
 
     public bool isActive = false;
-    public float rotation = 0;
     Transform child;
+    public Sprite[] trailSprites;
+    int len;
 	// Use this for initialization
 	void Awake () {
         child = transform.GetChild(0);
+        len = trailSprites.Length;
 	}
+    public int hitTick = 0;
 
-    public void StartHit()
+    public bool StartHit()
     {
-        if (!isActive)
+        if (hitTick >= 4)
         {
             isActive = true;
-            rotation = -50;
+            return true;
         }
+        return false;
     }
 	
 	// Update is called once per frame
-	void Update () {
-		if (isActive)
+	void FixedUpdate () {
+		if (hitTick < 4)
         {
-            rotation += Time.deltaTime * 600f;
-            if (rotation >= 50f)
-                isActive = false;
+            for (int i = 0; i < )
         }
-        transform.localRotation = Quaternion.Euler(0, 0, rotation);
-        if (rotation >= 50 || isActive == false)
-            child.gameObject.SetActive(false);
-        else
-            child.gameObject.SetActive(true);
+        hitTick++;
     }
 }
