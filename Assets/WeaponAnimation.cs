@@ -7,6 +7,7 @@ public class WeaponAnimation : MonoBehaviour {
     public bool isActive = false;
     Transform child;
     public Sprite[] trailSprites;
+    public GameObject hitBox;
     int len;
 	// Use this for initialization
 	void Awake () {
@@ -29,7 +30,10 @@ public class WeaponAnimation : MonoBehaviour {
 	void FixedUpdate () {
 		if (hitTick < 4)
         {
-            for (int i = 0; i < )
+        }
+        else
+        {
+
         }
         hitTick++;
     }
