@@ -38,32 +38,32 @@ public class GrindPlayerController : MonoBehaviour {
         {
             Players[0].Score += commandController.DoTask(0, "Action4");
         }
-        if (Input.GetAxis("Horizontal") > 0 && !rightPressed)
+        if (Input.GetAxis("Incantation_left_right") > 0 && !rightPressed)
         {
             Players[0].Score += commandController.DoTask(0, "Right");
             rightPressed = true;
         }
-        if (Input.GetAxis("Horizontal") < 0 && !leftPressed)
+        if (Input.GetAxis("Incantation_left_right") < 0 && !leftPressed)
         {
             Players[0].Score += commandController.DoTask(0, "Left");
             leftPressed = true;
         }
-        if (Input.GetAxis("Horizontal") == 0)
+        if (Input.GetAxis("Incantation_left_right") == 0)
         {
             leftPressed = false;
             rightPressed = false;
         }
-        if (Input.GetAxis("Vertical") > 0 && !upPressed)
+        if (Input.GetAxis("Incantation_up_down") > 0 && !upPressed)
         {
             Players[0].Score += commandController.DoTask(0, "Up");
             upPressed = true;
         }
-        if (Input.GetAxis("Vertical") < 0 && !downPressed)
+        if (Input.GetAxis("Incantation_up_down") < 0 && !downPressed)
         {
             Players[0].Score += commandController.DoTask(0, "Down");
             downPressed = true;
         }
-        if(Input.GetAxis("Vertical") == 0)
+        if(Input.GetAxis("Incantation_up_down") == 0)
         {
             upPressed = false;
             downPressed = false;
