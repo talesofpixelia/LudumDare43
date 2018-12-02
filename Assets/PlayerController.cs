@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
     bool shieldActivated = false;
     public bool isBot = false;
     public GameObject shieldSprite;
+    public int playerId;
 
     public bool CanJump
     {

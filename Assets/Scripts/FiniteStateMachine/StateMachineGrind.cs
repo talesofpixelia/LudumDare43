@@ -9,7 +9,7 @@ namespace Assets.Scripts.FiniteStateMachine
         private int ResponceTimeMillisecond { get; set; }
         private int Percentage { get; set; }
 
-        private string[] ResultWin = new string[] { "a", "b", "x", "y" };
+        private string[] ResultWin = new string[] { "Action1", "Action2", "Action3", "Action4" };
 
         public StateMachineGrind(int responceTime, int percentage)
         {
@@ -20,6 +20,7 @@ namespace Assets.Scripts.FiniteStateMachine
         public string PlayerController(string grindCorect)
         {
             DateTime start = DateTime.Now;
+            TimeSpan response = new TimeSpan(0, 0, 0, 0, this.ResponceTimeMillisecond);
             string result = grindCorect;
             if (!Win())
             {
@@ -31,7 +32,13 @@ namespace Assets.Scripts.FiniteStateMachine
                 } while (result == grindCorect);
             }
 
-            TimeSpan dur = DateTime.Now - start;
+            TimeSpan span;
+            TimeSpan dur;
+            do
+            {
+                dur = DateTime.Now - start;
+                span = response - dur;
+            } while ((int)span.TotalMilliseconds <= 0);
 
             return result;
         }
