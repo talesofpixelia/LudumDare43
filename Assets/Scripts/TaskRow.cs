@@ -6,7 +6,7 @@ using UnityEngine;
 public class TaskRow : MonoBehaviour {
 
     public SpriteRenderer[] Sprites = new SpriteRenderer[4];
-
+    public Task[] Tasks = new Task[4];
 
 	// Use this for initialization
 	void Start () {
@@ -18,19 +18,18 @@ public class TaskRow : MonoBehaviour {
 		
 	}
 
-    public void SetSymbols(Sprite[] newSprites)
+    public Task[] GetTasks()
     {
-        for(int i = 0; i < newSprites.Length; i++)
-        {
-            Sprites[i].sprite = newSprites[i];
-        }
+        return Tasks;
     }
 
-    internal void SetColors(IList<Color> colors)
+    public void SetTasks(Task[] newTasks)
     {
-        for(int i = 0; i < colors.Count; i++)
+        Tasks = newTasks;
+        for (int i = 0; i < newTasks.Length; i++)
         {
-            Sprites[i].color = colors[i];
+            Sprites[i].sprite = newTasks[i].Icon;
+            Sprites[i].color = newTasks[i].Player.PlayerColor;
         }
     }
 }

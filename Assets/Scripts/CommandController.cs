@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class command_controller : MonoBehaviour {
+public class CommandController : MonoBehaviour {
 
     public Sprite[] SymbolSprites = new Sprite[4];
+    public string[] TaskNames = new string[4];
     public Sprite EmptySymbol;
     public TaskRow TopRow;
     public TaskRow BotRow;
@@ -15,8 +16,10 @@ public class command_controller : MonoBehaviour {
     public float TimeLeft;
     public float ChangeSpeed;
     public int State;
-    public int PlayerCount;
-    public Color[] PlayerColor = new Color[4];
+    public Player[] Players;
+    public Task[] ActiveTasks = new Task[4];
+    public int PlayerOrder = 0;
+    
     const int CHANGING = 0;
     const int READY = 1;
 
@@ -24,12 +27,11 @@ public class command_controller : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         State = READY;
-        TopRow.SetSymbols(RollNewTasks(PlayerCount));
-        TopRow.SetColors(PlayerColor.Shuffle());
-        BotRow.SetSymbols(RollNewTasks(PlayerCount));
-        BotRow.SetColors(PlayerColor.Shuffle());
+        TopRow.SetTasks(RollNewTasks());
+        ActiveTasks = RollNewTasks();
+        BotRow.SetTasks(ActiveTasks);
         TimeLeft = TimePerTask;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -68,26 +70,50 @@ public class command_controller : MonoBehaviour {
         TopRow = BotRow;
         BotRow = topRow;
         TimeLeft = TimePerTask;
+        ActiveTasks = BotRow.GetTasks();
         State = READY;
-        TopRow.SetSymbols(RollNewTasks(PlayerCount));
-        TopRow.SetColors(PlayerColor.Shuffle());
-        
+        TopRow.SetTasks(RollNewTasks());
     }
 
-    private Sprite[] RollNewTasks(int taskCount)
+    private Task[] RollNewTasks()
     {
-        Sprite[] newTasks = new Sprite[4];
-        for (int i =0; i < taskCount; i++)
+        Task[] tasks = new Task[4];
+        Sprite[] sprites = new Sprite[4];
+        string[] names = new string[4];
+        for (int i =0; i < Players.Length; i++)
         {
-            newTasks[i] = SymbolSprites[Random.Range(0, SymbolSprites.Length)];
+            int id = Random.Range(0, SymbolSprites.Length);
+            sprites[i] = SymbolSprites[id];
+            names[i] = TaskNames[id];
         }
 
-        for (int i = taskCount; i < 4; i++)
+        for (int i = Players.Length; i < 4; i++)
         {
-            newTasks[i] = EmptySymbol;
+            sprites[i] = EmptySymbol;
+            names[i] = "";
+        }
+        Players.Shuffle();
+        for(int i = 0; i < 4; i++)
+        {
+            tasks[i] = new Task(Players[i], sprites[i], names[i]);
         }
 
-        return newTasks;
+        return tasks;
+    }
+
+    public int DoTask (int playerId, string action)
+    {
+        if (State == CHANGING) return 0;
+        int score = -50;
+        for(int i = 0; i < ActiveTasks.Length; i++)
+        {
+            if (ActiveTasks[i].Player.Id == playerId && ActiveTasks[i].Name == action && !ActiveTasks[i].done)
+            {
+                score = 300 - 75 * PlayerOrder;
+                ActiveTasks[i].done = true;
+            }
+        }
+        return score;
     }
 
 }
