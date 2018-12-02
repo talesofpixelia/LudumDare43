@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -11,9 +12,11 @@ public class PlayerController : MonoBehaviour {
     ContactDetector contactDetector;
     public float shieldAmount = 1;
     public bool canUseShield = true;
-    bool shieldActivated = false;
+    public bool shieldActivated = false;
     public bool isBot = false;
     public GameObject shieldSprite;
+    public Image shieldGauge;
+    public WeaponAnimation wanim;
 
     public bool CanJump
     {
@@ -60,38 +63,64 @@ public class PlayerController : MonoBehaviour {
             jump();
         else if (Input.GetButtonDown("Action1") && canReJump)
             reJump();
-        if (!isBot)
+        if (!isBot && !wanim.isActive)
             useShield(Input.GetButton("Action4"));
+        if (Input.GetButtonDown("Action2") && !shieldActivated)
+            hit();
         handleShield();
         contactDetector.collider.enabled = (rb.velocity.y > 0 ? false : true);
+        Debug.Log(hAxis);
+        if (hAxis < -0.1f)
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        if (hAxis > 0.1f)
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+
+    }
+
+    public float htof(float val)
+    {
+        return val / 255f;
+    }
+
+    public void hit()
+    {
+        wanim.StartHit();
     }
 
     public void useShield(bool use = false)
     {
-        Debug.Log(use);
         if (canUseShield)
+        {
             shieldActivated = use;
+        }
     }
 
     public void handleShield()
     {
         if (!canUseShield && shieldAmount >= 1)
             canUseShield = true;
-        else
-            shieldActivated = false;
         if (shieldAmount <= 0)
         {
             shieldAmount = 0;
             canUseShield = false;
+            shieldActivated = false;
         }
         if (shieldActivated)
-        {
             shieldAmount -= Time.deltaTime;
-        }
+        else
+            shieldAmount += Time.deltaTime;
+        if (shieldAmount > 1)
+            shieldAmount = 1;
         if (shieldActivated)
             shieldSprite.SetActive(true);
         else
             shieldSprite.SetActive(false);
+        shieldGauge.fillAmount = shieldAmount;
+        float shieldDisplayed = (shieldAmount >= 1 ? 0 : 0.35f);
+        if (canUseShield)
+            shieldGauge.color = new Color(0.35f, 1, 0.35f, shieldDisplayed);
+        else
+            shieldGauge.color = new Color(1, 0.35f, 0.35f, shieldDisplayed);
     }
 
     public void jump()
