@@ -28,6 +28,7 @@ public class ContactDetector : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        controller.hasTouchedDown();
+        if (controller != null)
+            controller.hasTouchedDown();
     }
 }
