@@ -189,7 +189,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4268616921013836}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4113348597355892
 Transform:
@@ -202,7 +202,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4268616921013836}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 61.8}
 --- !u!4 &4268616921013836
 Transform:
@@ -214,15 +214,15 @@ Transform:
   m_LocalPosition: {x: 0, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4019599268053176}
   - {fileID: 4935718728758084}
   - {fileID: 4899251580694300}
-  - {fileID: 4019599268053176}
   - {fileID: 4334717081575420}
+  - {fileID: 4790171110195472}
   - {fileID: 4402858423336306}
   - {fileID: 4113348597355892}
   - {fileID: 4431114972611724}
   - {fileID: 4725553628787128}
-  - {fileID: 4790171110195472}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -250,7 +250,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4268616921013836}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 61.8}
 --- !u!4 &4431114972611724
 Transform:
@@ -263,7 +263,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4268616921013836}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 61.8}
 --- !u!4 &4725553628787128
 Transform:
@@ -276,7 +276,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4268616921013836}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 61.8}
 --- !u!4 &4790171110195472
 Transform:
@@ -289,7 +289,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4268616921013836}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 61.8}
 --- !u!4 &4899251580694300
 Transform:
@@ -302,7 +302,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4268616921013836}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4935718728758084
 Transform:
@@ -315,7 +315,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4268616921013836}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95211897554063826
 Animator:
@@ -350,8 +350,14 @@ MonoBehaviour:
     Id: 2
     PlayerColor: {r: 1, g: 0.8000001, b: 0, a: 1}
     Score: 0
+    Weapon: 0
   PersonalScore: {fileID: 0}
   commandController: {fileID: 0}
+  oPart: {fileID: 0}
+  xPart: {fileID: 0}
+  yPart: {fileID: 0}
+  aPart: {fileID: 0}
+  bPart: {fileID: 0}
 --- !u!198 &198038011512840950
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -484,7 +490,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.1
+      scalar: 3.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5074,7 +5080,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.1
+      scalar: 3.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -9664,7 +9670,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.1
+      scalar: 3.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -14254,7 +14260,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.1
+      scalar: 3.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -18844,7 +18850,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.1
+      scalar: 3.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
