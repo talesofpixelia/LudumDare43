@@ -17,11 +17,17 @@ public class GrindPlayerManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		if(commandController)
+        activePlayerList = GameObject.Find("_PlayerData_").GetComponent<ActivePlayerList>();
+        if (commandController)
         {
             for(int i = 0; i < 4; i++)
             {
-                Player p = PlayerGOs[i].GetComponentInChildren<GrindPlayerCtrl>().player;
+                Player p = activePlayerList.Players[i];
+                PlayerGOs[i].GetComponentInChildren<GrindPlayerCtrl>().player = p;
+                if (!p.isAlive)
+                {
+                    PlayerGOs[i].SetActive(false);
+                }
                 Players[i] = p;
                 commandController.Players[i] = p;
             }
@@ -35,7 +41,8 @@ public class GrindPlayerManager : MonoBehaviour {
 
     public void ShowWeapons()
     {
-        for (int i = 0; i < PlayerGOs.Length; i++) {
+        for (int i = 0; i < PlayerGOs.Length; i++)
+        {
             int score = PlayerGOs[i].GetComponentInChildren<GrindPlayerCtrl>().player.Score;
             if (score > ScytheScore)
             {
@@ -58,8 +65,5 @@ public class GrindPlayerManager : MonoBehaviour {
                 Players[i].Weapon = 0;
             }
         }
-
-        //ResultsObject.Players = Players;
     }
-    
 }
