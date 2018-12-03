@@ -12,6 +12,7 @@ public class GrindPlayerCtrl : MonoBehaviour {
     private bool leftPressed = false;
     private bool rightPressed = false;
     public CommandController commandController;
+    public AiGrindPlayer aiGrindPlayer;
     public ParticleSystem oPart;
     public ParticleSystem xPart;
     public ParticleSystem yPart;
@@ -22,16 +23,23 @@ public class GrindPlayerCtrl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        rePlayer = Rewired.ReInput.players.GetPlayer(player.Id);
-        oPart = this.transform.Find("O_parts").gameObject.GetComponent<ParticleSystem>();
-        xPart = this.transform.Find("X_parts").gameObject.GetComponent<ParticleSystem>();
-        yPart = this.transform.Find("Y_parts").gameObject.GetComponent<ParticleSystem>();
-        aPart = this.transform.Find("A_parts").gameObject.GetComponent<ParticleSystem>();
-        bPart = this.transform.Find("B_parts").gameObject.GetComponent<ParticleSystem>();
+        if (!player.isBot)
+        {
+            rePlayer = Rewired.ReInput.players.GetPlayer(player.Id);
+            oPart = this.transform.Find("O_parts").gameObject.GetComponent<ParticleSystem>();
+            xPart = this.transform.Find("X_parts").gameObject.GetComponent<ParticleSystem>();
+            yPart = this.transform.Find("Y_parts").gameObject.GetComponent<ParticleSystem>();
+            aPart = this.transform.Find("A_parts").gameObject.GetComponent<ParticleSystem>();
+            bPart = this.transform.Find("B_parts").gameObject.GetComponent<ParticleSystem>();
+        } else
+        {
+
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
+
 		if (rePlayer.GetButtonDown("Action1"))
         {
             Debug.Log(player.Id + " A1");

@@ -19,7 +19,6 @@ public class ReinitPlayerData : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             var player = activePlayerList.Players[i];
-            player.isBot = true;
             player.isAlive = true;
             player.Score = 0;
             player.Id = i;
