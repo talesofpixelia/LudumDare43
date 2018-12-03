@@ -15,15 +15,14 @@ public class BrawlCore : Singleton<BrawlCore> {
     public CharacterInfoCard[] InfoCards;
     public Text timerText;
     int playerAmount = 4;
+    ActivePlayerList activePlayerList;
 
     public float timer;
     private bool finished;
     public bool doesUpdate = true;
 
     void Start () {
-        var activePlayerList = GameObject.Find("_PlayerData_").GetComponent<ActivePlayerList>();
-        if (!doesUpdate)
-            return;
+        activePlayerList = GameObject.Find("_PlayerData_").GetComponent<ActivePlayerList>();
         for (int i = 0; i < 4; i++)
         {
             InfoCards[i].gameObject.SetActive(false);
@@ -51,6 +50,8 @@ public class BrawlCore : Singleton<BrawlCore> {
 	}
 	
 	void Update () {
+        if (!doesUpdate)
+            return;
         if (!isRunning && !finished)
         {
             timer = 60;
@@ -86,6 +87,7 @@ public class BrawlCore : Singleton<BrawlCore> {
         }
         if (finished)
         {
+            bool someoneHasBeenSacrificed = false;
             doesUpdate = false;
             for (int i = 0; i < playerAmount; i++)
             {
@@ -93,12 +95,16 @@ public class BrawlCore : Singleton<BrawlCore> {
                     continue;
                 if (players[i].lives < 0)
                 {
-                    mainText.text = players[i].player.name + " has been SACRIFICED";
+                    mainText.text = activePlayerList.Players[i].rePlayerID + " has been SACRIFICED";
+                    someoneHasBeenSacrificed = true;
                 }
-                players[i].rb.isKinematic = true;
+                players[i].rb.simulated = false;
                 players[i].transform.position = new Vector3(0, 100 + i * 10);
             }
-            StartCoroutine(goToGrind());
+            if (someoneHasBeenSacrificed)
+                StartCoroutine(goToGrind());
+            else
+                StartCoroutine(goToGrindAdterSacrificingRandom());
         }
     }
 
@@ -107,6 +113,44 @@ public class BrawlCore : Singleton<BrawlCore> {
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(1);
     }
+
+    IEnumerator goToGrindAdterSacrificingRandom()
+    {
+        mainText.text = "MEDIOCRE !!";
+        yield return new WaitForSeconds(1);
+        mainText.text = "Someone has to be sacrificed!\nand it will be...";
+        yield return new WaitForSeconds(1.5f);
+        bool hasBeenSacrificed = false;
+        int sacreficedId = 0;
+        while (hasBeenSacrificed)
+        {
+            sacreficedId = Random.Range(0, 3);
+            if (!activePlayerList.Players[sacreficedId].isAlive)
+                continue;
+            activePlayerList.Players[sacreficedId].isAlive = false;
+            hasBeenSacrificed = true;
+        }
+        mainText.text = activePlayerList.Players[sacreficedId].rePlayerID + " !!";
+        int playersAliveAmount = 0;
+        int nonBotPlayersAlive = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            if (activePlayerList.Players[sacreficedId].isAlive)
+            {
+                playersAliveAmount++;
+                if (!activePlayerList.Players[sacreficedId].isBot)
+                    nonBotPlayersAlive++;
+            }
+
+        }
+        yield return new WaitForSeconds(2);
+        Debug.Log("azfazf");
+        if (playersAliveAmount < 2 || nonBotPlayersAlive <= 0)
+            SceneManager.LoadScene(3);
+        else
+            SceneManager.LoadScene(1);
+    }
+
 
     public void stopGame()
     {
