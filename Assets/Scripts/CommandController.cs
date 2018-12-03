@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CommandController : MonoBehaviour {
 
@@ -19,36 +20,59 @@ public class CommandController : MonoBehaviour {
     public Player[] Players;
     public Task[] ActiveTasks = new Task[4];
     public int PlayerOrder = 0;
+    public int TasksPerPlayer;
+    public int TasksRemaining;
+    public Animator ScoreAnimator;
+    public float SceneChangeTimer;
+    
     
     const int CHANGING = 0;
     const int READY = 1;
+    const int SCORE = 2;
 
 
 	// Use this for initialization
 	void Start () {
         State = READY;
         TopRow.SetTasks(RollNewTasks());
-        ActiveTasks = RollNewTasks();
+        ActiveTasks = EmptyTasks();
         BotRow.SetTasks(ActiveTasks);
         TimeLeft = TimePerTask;
+        TasksRemaining = TasksPerPlayer;
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if (READY == State && TimeLeft < 0)
+        if (SCORE == State)
         {
-            StateToChanging();
-        } else if (CHANGING == State && TopRow.transform.position == MidPosition.position)
-        {
-            StateToReady(); ;
+            SceneChangeTimer -= Time.deltaTime;
+            if (SceneChangeTimer < 0)
+            {
+                SceneManager.LoadScene("brawl");
+            }
         }
-        if (READY == State) 
+        if (TasksRemaining > 0)
         {
-            TimeLeft -= Time.deltaTime;
+            if (READY == State && TimeLeft < 0)
+            {
+                StateToChanging();
+            }
+            else if (CHANGING == State && TopRow.transform.position == MidPosition.position)
+            {
+                StateToReady();
+            }
+            if (READY == State)
+            {
+                TimeLeft -= Time.deltaTime;
+            }
+            else
+            {
+                MoveOverSpeed(TopRow.gameObject, MidPosition.position, ChangeSpeed);
+                MoveOverSpeed(BotRow.gameObject, BotPosition.position, ChangeSpeed);
+            }
         } else
         {
-            MoveOverSpeed(TopRow.gameObject, MidPosition.position, ChangeSpeed);
-            MoveOverSpeed(BotRow.gameObject, BotPosition.position, ChangeSpeed);
+            StateToScore();
         }
 	}
 
@@ -97,7 +121,18 @@ public class CommandController : MonoBehaviour {
         {
             tasks[i] = new Task(Players[i], sprites[i], names[i]);
         }
+        TasksRemaining--;
+        return tasks;
+    }
 
+    private Task[] EmptyTasks()
+    {
+        Task[] tasks = new Task[4];
+        
+        for (int i = 0; i < 4; i++)
+        {
+            tasks[i] = new Task(Players[i], EmptySymbol, "");
+        }
         return tasks;
     }
 
@@ -114,6 +149,12 @@ public class CommandController : MonoBehaviour {
             }
         }
         return score;
+    }
+
+    private void StateToScore()
+    {
+        State = SCORE;
+        ScoreAnimator.SetBool("IsScore", true);
     }
 
 }

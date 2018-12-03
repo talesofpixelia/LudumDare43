@@ -7,5 +7,6 @@ public class Player {
     public int Id;
     public Color PlayerColor;
     public int Score;
+    public int Weapon;
 
 }

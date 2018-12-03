@@ -1,0 +1,23 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GrindResults : MonoBehaviour {
+
+    public Player[] Players = new Player[4];    
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.transform);
+    }
+
+    // Use this for initialization
+    void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+}
