@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     public bool canJump = true;
     public bool canReJump = true;
     float jumpDelay = 0;
-    float jumpForce = 600;
+    float jumpForce = 800;
     ContactDetector contactDetector;
     public float shieldAmount = 1;
     public bool canUseShield = true;
