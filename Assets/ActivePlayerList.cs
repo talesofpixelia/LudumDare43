@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrindResults : MonoBehaviour {
+public class ActivePlayerList : MonoBehaviour {
 
     public Player[] Players = new Player[4];    
 
@@ -20,4 +20,6 @@ public class GrindResults : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
 }

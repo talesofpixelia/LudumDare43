@@ -2720,7 +2720,7 @@ GameObject:
   - component: {fileID: 2136545328}
   - component: {fileID: 2136545327}
   m_Layer: 0
-  m_Name: PlayerWeapons
+  m_Name: ActivePlayerList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2739,19 +2739,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Players:
   - Id: 0
-    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
+    PlayerColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
     Score: 0
     Weapon: 0
   - Id: 0
-    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
+    PlayerColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
     Score: 0
     Weapon: 0
   - Id: 0
-    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
+    PlayerColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
     Score: 0
     Weapon: 0
   - Id: 0
-    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
+    PlayerColor:
+      r: 0
+      g: 0
+      b: 0
+      a: 0
     Score: 0
     Weapon: 0
 --- !u!4 &2136545328

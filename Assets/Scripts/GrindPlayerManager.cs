@@ -13,7 +13,7 @@ public class GrindPlayerManager : MonoBehaviour {
     public int ScytheScore;
     public int StaffScore;
     public int DaggerScore;
-    public GrindResults ResultsObject;
+    public ActivePlayerList activePlayerList;
 
     // Use this for initialization
     void Start () {
