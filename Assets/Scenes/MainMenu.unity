@@ -2376,28 +2376,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Players:
   - Id: 0
-    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
+    PlayerColor: {r: 0.6117647, g: 0, b: 0, a: 1}
     Score: 0
     Weapon: 0
     isBot: 0
     isAlive: 0
     rePlayerID: 
   - Id: 0
-    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
+    PlayerColor: {r: 0.20392159, g: 0.6, b: 0, a: 1}
     Score: 0
     Weapon: 0
     isBot: 0
     isAlive: 0
     rePlayerID: 
   - Id: 0
-    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
+    PlayerColor: {r: 1, g: 0.7960785, b: 0, a: 1}
     Score: 0
     Weapon: 0
     isBot: 0
     isAlive: 0
     rePlayerID: 
   - Id: 0
-    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
+    PlayerColor: {r: 0, g: 0, b: 0.6039216, a: 1}
     Score: 0
     Weapon: 0
     isBot: 0
