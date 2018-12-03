@@ -243,8 +243,9 @@ public class PlayerController : MonoBehaviour {
         if (lastHit < stunDelay)
             return;
         SoundManager.Instance.playClip(shieldActivated ? 2 : 3);
-        float hitforce = (shieldActivated ? 200 + 5 * damage : 400 + 10 * damage ) * powerMultiplier;
-        damage += 10;
+        float hitforce = (shieldActivated ? 100 + 5 * damage : 400 + 10 * damage ) * powerMultiplier;
+        if (!shieldActivated)
+            damage += 10;
         var vector = new Vector2(hitPosition.x < transform.position.x ? 1 : -1, 0.35f) * hitforce;
         rb.AddForce(vector);
         lastHit = 0;
