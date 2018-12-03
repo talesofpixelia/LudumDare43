@@ -9,7 +9,8 @@ public class ReinitPlayerData : MonoBehaviour
     public GameObject[] toJoinText;
     public GameObject[] joinedText;
 
-    IList<Rewired.Player> rePlayerList;
+    public IList<Rewired.Player> rePlayerList;
+
     ActivePlayerList activePlayerList;
     int playerJoinedAmount = 0;
     // Use this for initialization
@@ -41,6 +42,7 @@ public class ReinitPlayerData : MonoBehaviour
             i++;
             if (player.GetButtonDown("startGame"))
             {
+                Debug.Log("startGame");
                 SceneManager.LoadScene(1);
             }
         }
