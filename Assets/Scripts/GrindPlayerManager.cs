@@ -59,7 +59,7 @@ public class GrindPlayerManager : MonoBehaviour {
             }
         }
 
-        ResultsObject.Players = Players;
+        //ResultsObject.Players = Players;
     }
     
 }
