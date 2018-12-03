@@ -20,13 +20,18 @@ public class PlayerController : MonoBehaviour {
     public GameObject shieldSprite;
     public Image shieldGauge;
     public Image[] hitStars;
+    public Sprite[] playerSkins;
+    public SpriteRenderer playerSkin;
     float hAxis, vAxis;
     public float hits = 3;
     bool btHit = false;
     public bool isTurnedLeft = false;
     public float lastHit = 0;
+    float safeHitDelay = 0.3f;
+    public GameObject dieParticle;
 
-    public WeaponAnimation wanim;
+    public WeaponAnimation[] weapons;
+    public int weaponId = 0;
     private Rewired.Player player; // The Rewired Player
     public int playerId;
 
@@ -48,10 +53,15 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    void Awake()
+    {
+    }
+
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
         contactDetector = transform.GetComponentInChildren<ContactDetector>();
         player = ReInput.players.GetPlayer(playerId);
+        playerSkin.sprite = playerSkins[playerId];
         Debug.Log(player.name);
     }
 
@@ -63,7 +73,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update () {
-        hAxis = (lastHit > 0.3f ? player.GetAxis("hAxis") : 0);
+        if (!BrawlCore.Instance.isRunning)
+            return;
+        hAxis = (lastHit > safeHitDelay ? player.GetAxis("hAxis") : 0);
         vAxis = player.GetAxis("vAxis");
         bool btJump = player.GetButtonDown("jump");
         bool btShield = player.GetButton("shield");
@@ -75,7 +87,7 @@ public class PlayerController : MonoBehaviour {
         }
         else if (btJump && canReJump)
             reJump();
-        if (!isBot && !wanim.isActive)
+        if (!isBot && !weapons[weaponId].isActive)
             useShield(btShield);
         handleShield();
         handleHit();
@@ -90,8 +102,13 @@ public class PlayerController : MonoBehaviour {
             isTurnedLeft = false;
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        if (transform.position.y < -20)
+        if (transform.position.y < -10)
+        {
+            var ps = GameObject.Instantiate(dieParticle);
+            ps.transform.position = transform.position;
+            ps.SetActive(true);
             transform.position = Vector2.zero;
+        }
         lastHit += Time.deltaTime;
     }
 
@@ -133,7 +150,9 @@ public class PlayerController : MonoBehaviour {
         if (shieldAmount > 1)
             shieldAmount = 1;
         if (shieldActivated)
+        {
             shieldSprite.SetActive(true);
+        }
         else
             shieldSprite.SetActive(false);
         shieldGauge.fillAmount = shieldAmount;
@@ -162,7 +181,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (!shieldActivated && hits > 1)
         {
-            if (wanim.StartHit())
+            if (weapons[weaponId].StartHit())
             {
                 hits -= 1;
             }
@@ -193,7 +212,9 @@ public class PlayerController : MonoBehaviour {
 
     internal void getRekt(Vector2 hitPosition)
     {
-        float hitforce = (shieldActivated ? 100 : 800);
+        if (lastHit < safeHitDelay)
+            return;
+        float hitforce = (shieldActivated ? 600 : 1600);
         var vector = new Vector2(hitPosition.x < transform.position.x ? 1 : -1, 0.35f) * hitforce;
         rb.AddForce(vector);
         lastHit = 0;

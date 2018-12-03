@@ -6,7 +6,7 @@ public class WeaponAnimation : MonoBehaviour {
 
     public bool isActive = false;
     Transform child;
-    public Sprite[] trailSprites;
+    public GameObject[] trailSprites;
     public GameObject hitBox;
     int len;
 	// Use this for initialization
@@ -18,23 +18,29 @@ public class WeaponAnimation : MonoBehaviour {
 
     public bool StartHit()
     {
-        if (hitTick >= 4)
-        {
-            isActive = true;
-            return true;
-        }
-        return false;
+        hitTick = 0;
+        isActive = true;
+        return true;
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (hitTick < 4)
+		if (hitTick < len)
         {
+            for (int i = 0; i < len; i++)
+            {
+                trailSprites[i].SetActive(false);
+            }
+            trailSprites[hitTick].SetActive(true);
+            hitBox.SetActive(true);
+            hitTick++;
         }
         else
         {
-
+            for (int i = 0; i < len; i++)
+                trailSprites[i].SetActive(false);
+            hitBox.SetActive(false);
+            isActive = false;
         }
-        hitTick++;
     }
 }
