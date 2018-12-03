@@ -4,12 +4,12 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: CustomSprite (Vertex Lit, Normal Map, Emission)
   m_Shader: {fileID: 4800000, guid: 8d8595bc04e68504fa1e36c72d7ead57, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA PIXELSNAP_ON _ALPHABLEND_ON _EMISSION _FIXED_NORMALS_VIEWSPACE
-    _GLOSSYREFLECTIONS_OFF _NORMALMAP _SPHERICAL_HARMONICS _ZWRITE_OFF
+    _GLOSSYREFLECTIONS_OFF _SPHERICAL_HARMONICS _ZWRITE_OFF
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -80,7 +80,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
-    - _EmissionPower: 1
+    - _EmissionPower: 1.64
     - _EnableExternalAlpha: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.675
