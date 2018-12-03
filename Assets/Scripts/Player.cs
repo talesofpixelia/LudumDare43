@@ -8,5 +8,7 @@ public class Player {
     public Color PlayerColor;
     public int Score;
     public int Weapon;
+    public bool Active;
+    public bool AI;
 
 }

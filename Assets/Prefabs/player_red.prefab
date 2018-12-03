@@ -351,6 +351,8 @@ MonoBehaviour:
     PlayerColor: {r: 0.60784316, g: 0.058823533, b: 0.058823533, a: 1}
     Score: 0
     Weapon: 0
+    Active: 0
+    AI: 0
   PersonalScore: {fileID: 0}
   commandController: {fileID: 0}
   oPart: {fileID: 0}
@@ -2887,7 +2889,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.69
+      scalar: 0.24
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -7477,7 +7479,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.69
+      scalar: 0.24
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -12067,7 +12069,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.69
+      scalar: 0.24
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -16657,7 +16659,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.69
+      scalar: 0.24
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -21247,7 +21249,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.69
+      scalar: 0.24
       minScalar: 1
       maxCurve:
         serializedVersion: 2

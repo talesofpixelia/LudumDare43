@@ -122,6 +122,7 @@ public class CommandController : MonoBehaviour {
             tasks[i] = new Task(Players[i], sprites[i], names[i]);
         }
         TasksRemaining--;
+        PlayerOrder = 0;
         return tasks;
     }
 
@@ -144,8 +145,9 @@ public class CommandController : MonoBehaviour {
         {
             if (ActiveTasks[i].Player.Id == playerId && ActiveTasks[i].Name == action && !ActiveTasks[i].done)
             {
-                score = 300 - 75 * PlayerOrder;
+                score = 4 - PlayerOrder;
                 ActiveTasks[i].done = true;
+                PlayerOrder++;
             }
         }
         return score;
