@@ -38,6 +38,7 @@ public class BrawlCore : Singleton<BrawlCore> {
                 player.playerId = i;
                 players[i] = player;
                 player.weaponId = activePlayerList.Players[i].Weapon;
+                player.playerName = activePlayerList.Players[i].rePlayerID;
                 if (activePlayerList.Players[i].isBot)
                 {
                     player.gameObject.AddComponent<NaIA>();
