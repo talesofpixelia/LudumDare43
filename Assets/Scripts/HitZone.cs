@@ -21,8 +21,8 @@ public class HitZone : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && collision.gameObject != transform.parent.parent.gameObject)
         {
-            Debug.Log("HIT !!!!!!");
-            collision.GetComponent<PlayerController>().getRekt(this.transform.parent.position);
+            collision.GetComponent<PlayerController>().getRekt(this.transform.parent.position,
+                this.transform.parent.GetComponent<WeaponAnimation>().powerMultiplicator);
         }
     }
 }

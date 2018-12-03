@@ -22,18 +22,22 @@ public class PlayerController : MonoBehaviour {
     public Image[] hitStars;
     public Sprite[] playerSkins;
     public SpriteRenderer playerSkin;
-    float hAxis, vAxis;
+    public float hAxis, vAxis;
     public float hits = 3;
-    bool btHit = false;
+    public bool btHit = false;
+    public bool btJump = false;
+    public bool btShield = false;
     public bool isTurnedLeft = false;
+    public int damage = 0;
     public float lastHit = 0;
-    float safeHitDelay = 0.3f;
+    float stunDelay = 0.3f;
     public GameObject dieParticle;
 
     public WeaponAnimation[] weapons;
     public int weaponId = 0;
-    private Rewired.Player player; // The Rewired Player
+    public  Rewired.Player player; // The Rewired Player
     public int playerId;
+    public  int lives;
 
     public bool CanJump
     {
@@ -57,11 +61,12 @@ public class PlayerController : MonoBehaviour {
     {
     }
 
-	void Start () {
+    void Start() {
         rb = GetComponent<Rigidbody2D>();
         contactDetector = transform.GetComponentInChildren<ContactDetector>();
         player = ReInput.players.GetPlayer(playerId);
         playerSkin.sprite = playerSkins[playerId];
+        lives = 3;
         Debug.Log(player.name);
     }
 
@@ -73,20 +78,21 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update () {
-        if (!BrawlCore.Instance.isRunning)
-            return;
-        hAxis = (lastHit > safeHitDelay ? player.GetAxis("hAxis") : 0);
-        vAxis = player.GetAxis("vAxis");
-        bool btJump = player.GetButtonDown("jump");
-        bool btShield = player.GetButton("shield");
+        updateInfoCard();
+        if (!isBot && BrawlCore.Instance.isRunning)
+        {
+            hAxis = player.GetAxis("hAxis");
+            vAxis = player.GetAxis("vAxis");
+            btJump = player.GetButtonDown("jump");
+            btShield = player.GetButton("shield");
+            btHit = player.GetButtonDown("hit");
+        }
+        if (lastHit < stunDelay)
+            hAxis = 0;
         physics();
         jumpDelay += Time.deltaTime;
-        if (btJump && CanJump && !contactDetector.isInTheAir)
-        {
+        if (btJump)
             jump();
-        }
-        else if (btJump && canReJump)
-            reJump();
         if (!isBot && !weapons[weaponId].isActive)
             useShield(btShield);
         handleShield();
@@ -108,8 +114,23 @@ public class PlayerController : MonoBehaviour {
             ps.transform.position = transform.position;
             ps.SetActive(true);
             transform.position = Vector2.zero;
+            lives--;
+            if (lives == -1)
+                BrawlCore.Instance.stopGame();
+            damage = 0;
         }
         lastHit += Time.deltaTime;
+    }
+
+    void updateInfoCard()
+    {
+        BrawlCore.Instance.InfoCards[playerId].skin.sprite = playerSkins[playerId];
+        for (int i = 0; i < 4; i++)
+            BrawlCore.Instance.InfoCards[playerId].weapons[i].gameObject.SetActive(false);
+        BrawlCore.Instance.InfoCards[playerId].weapons[weaponId].gameObject.SetActive(true);
+        for (int i = 0; i < 3; i++)
+            BrawlCore.Instance.InfoCards[playerId].lives[i].gameObject.SetActive(lives > i ? true : false);
+        BrawlCore.Instance.InfoCards[playerId].playerDamage.text = damage.ToString();
     }
 
     void physics()
@@ -165,8 +186,7 @@ public class PlayerController : MonoBehaviour {
 
     public void handleHit()
     {
-        btHit = player.GetButtonDown("hit");
-        if (btHit)
+        if (btHit && lastHit > stunDelay)
             hit();
         hits += Time.deltaTime * 1.5f;
         if (hits > 3)
@@ -190,10 +210,15 @@ public class PlayerController : MonoBehaviour {
 
     public void jump()
     {
-        jumpDelay = 0;
-        rb.AddForce(Vector2.up * jumpForce);
-        canJump = false;
-        canReJump = true;
+        if (CanJump && !contactDetector.isInTheAir)
+        {
+            jumpDelay = 0;
+            rb.AddForce(Vector2.up * jumpForce);
+            canJump = false;
+            canReJump = true;
+        }
+        else if (canReJump)
+            reJump();
     }
 
     public void reJump()
@@ -210,11 +235,12 @@ public class PlayerController : MonoBehaviour {
         canJump = true;
     }
 
-    internal void getRekt(Vector2 hitPosition)
+    internal void getRekt(Vector2 hitPosition, float powerMultiplier)
     {
-        if (lastHit < safeHitDelay)
+        if (lastHit < stunDelay)
             return;
-        float hitforce = (shieldActivated ? 600 : 1600);
+        float hitforce = (shieldActivated ? 200 + 5 * damage : 400 + 10 * damage ) * powerMultiplier;
+        damage += 10;
         var vector = new Vector2(hitPosition.x < transform.position.x ? 1 : -1, 0.35f) * hitforce;
         rb.AddForce(vector);
         lastHit = 0;

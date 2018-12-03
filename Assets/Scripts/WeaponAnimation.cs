@@ -9,6 +9,7 @@ public class WeaponAnimation : MonoBehaviour {
     public GameObject[] trailSprites;
     public GameObject hitBox;
     int len;
+    public float powerMultiplicator = 1;
 	// Use this for initialization
 	void Awake () {
         child = transform.GetChild(0);
