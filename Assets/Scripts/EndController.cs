@@ -13,22 +13,21 @@ public class EndController : MonoBehaviour {
     public GameObject sacrifice;
 
     // Use this for initialization
-    void Start () {
-
+    void Start ()
+    {
         congratz.SetActive(true);
         sacrifice.SetActive(false);
     }
     void Awake()
     {
-
         congratz.SetActive(true);
         sacrifice.SetActive(false);
     }
 
 
     // Update is called once per frame
-    void Update () {
-
+    void Update ()
+    {
         StartCoroutine(Sleep());
 	}
 
@@ -38,7 +37,7 @@ public class EndController : MonoBehaviour {
         {
             Debug.Log(i);
 
-            if (i == 1 || i == 4)
+            if (i == 1)
             {
                 foreach (var particle in particles)
                 {
@@ -46,7 +45,7 @@ public class EndController : MonoBehaviour {
                 }
             }
 
-            if (i == 4)
+            if (i == 12)
             {
                 congratz.SetActive(false);
                 sacrifice.SetActive(true);
