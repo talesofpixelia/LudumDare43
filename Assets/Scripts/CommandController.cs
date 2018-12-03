@@ -104,22 +104,24 @@ public class CommandController : MonoBehaviour {
         Task[] tasks = new Task[4];
         Sprite[] sprites = new Sprite[4];
         string[] names = new string[4];
-        for (int i =0; i < Players.Length; i++)
+        for (int i = 0; i < tasks.Length; i++)
         {
             int id = Random.Range(0, SymbolSprites.Length);
             sprites[i] = SymbolSprites[id];
             names[i] = TaskNames[id];
         }
-
-        for (int i = Players.Length; i < 4; i++)
-        {
-            sprites[i] = EmptySymbol;
-            names[i] = "";
-        }
+        
         Players.Shuffle();
         for(int i = 0; i < 4; i++)
         {
-            tasks[i] = new Task(Players[i], sprites[i], names[i]);
+            Sprite s = sprites[i];
+            string n = names[i];
+            if (!Players[i].isAlive)
+            {
+                s = EmptySymbol;
+                n = "";
+            }
+            tasks[i] = new Task(Players[i],s ,n );
         }
         TasksRemaining--;
         PlayerOrder = 0;
