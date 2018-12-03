@@ -348,7 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player:
     Id: 3
-    PlayerColor: {r: 0.058823533, g: 0.058823533, b: 0.5921569, a: 0}
+    PlayerColor: {r: 0.058823533, g: 0.058823533, b: 0.5921569, a: 1}
     Score: 0
   PersonalScore: {fileID: 0}
   commandController: {fileID: 0}
