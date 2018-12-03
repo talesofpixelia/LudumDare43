@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/brawl.unity
     guid: 4d325af7e0677e04883a05bacb4e43dd
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 84cecad8ba0f2bb4ca856f3f7471e1fa
   m_configObjects: {}
