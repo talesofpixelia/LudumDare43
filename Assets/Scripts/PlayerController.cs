@@ -203,6 +203,7 @@ public class PlayerController : MonoBehaviour {
         {
             if (weapons[weaponId].StartHit())
             {
+                SoundManager.Instance.playClip(0);
                 hits -= 1;
             }
         }
@@ -212,6 +213,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (CanJump && !contactDetector.isInTheAir)
         {
+            SoundManager.Instance.playClip(1);
             jumpDelay = 0;
             rb.AddForce(Vector2.up * jumpForce);
             canJump = false;
@@ -223,6 +225,7 @@ public class PlayerController : MonoBehaviour {
 
     public void reJump()
     {
+        SoundManager.Instance.playClip(1);
         jumpDelay = 0;
         if (rb.velocity.y < 0)
             rb.velocity = new Vector2(rb.velocity.x, 0);
@@ -239,6 +242,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (lastHit < stunDelay)
             return;
+        SoundManager.Instance.playClip(shieldActivated ? 2 : 3);
         float hitforce = (shieldActivated ? 200 + 5 * damage : 400 + 10 * damage ) * powerMultiplier;
         damage += 10;
         var vector = new Vector2(hitPosition.x < transform.position.x ? 1 : -1, 0.35f) * hitforce;
