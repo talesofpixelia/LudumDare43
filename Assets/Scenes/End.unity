@@ -19207,7 +19207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431abeb6274da324ebb9caca1cb86bbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 14.2
+  Duration: 14
   particles:
   - {fileID: 1151265088}
   - {fileID: 1396464194}
@@ -19225,7 +19225,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 29cecea7670631b459f00c6cf1ce26db,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: e6c8cbc5064e214488bf72c1fd2b1997, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d5fa76e4ed81705438f56d5c178e4083, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
