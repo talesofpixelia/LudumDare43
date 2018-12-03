@@ -14,27 +14,37 @@ public class BrawlCore : Singleton<BrawlCore> {
     public float countDownTimer = 0;
     public CharacterInfoCard[] InfoCards;
     public Text timerText;
-    int playerAmount = 3;
+    int playerAmount = 4;
 
     public float timer;
     private bool finished;
     public bool doesUpdate = true;
 
     void Start () {
+        var activePlayerList = GameObject.Find("_PlayerData_").GetComponent<ActivePlayerList>();
         if (!doesUpdate)
             return;
         for (int i = 0; i < 4; i++)
         {
             InfoCards[i].gameObject.SetActive(false);
-            if (i < playerAmount)
+            if (i < playerAmount && activePlayerList.Players[i].isAlive == true)
                 InfoCards[i].gameObject.SetActive(true);
         }
         players = new PlayerController[playerAmount];
         for (int i = 0; i < playerAmount; i++)
         {
-            PlayerController player = GameObject.Instantiate(playerTemplate, this.transform.parent, false) as PlayerController;
-            player.playerId = i;
-            players[i] = player;
+            if (activePlayerList.Players[i].isAlive)
+            {
+                PlayerController player = GameObject.Instantiate(playerTemplate, this.transform.parent, false) as PlayerController;
+                player.playerId = i;
+                players[i] = player;
+                player.weaponId = activePlayerList.Players[i].Weapon;
+                if (activePlayerList.Players[i].isBot)
+                {
+                    player.gameObject.AddComponent<NaIA>();
+                    player.isBot = true;
+                }
+            }
         }
         playerTemplate.gameObject.SetActive(false);
         finished = false;
@@ -49,7 +59,10 @@ public class BrawlCore : Singleton<BrawlCore> {
             {
                 mainText.text = "3";
                 for (int i = 0; i < 4; i++)
-                    players[i].transform.position = spawns[i].transform.position;
+                    if (players[i] != null)
+                    {
+                        players[i].transform.position = spawns[i].transform.position;
+                    }
             }
             else if (countDownTimer < 3f)
                 mainText.text = "2";
@@ -76,6 +89,8 @@ public class BrawlCore : Singleton<BrawlCore> {
             doesUpdate = false;
             for (int i = 0; i < playerAmount; i++)
             {
+                if (players[i] == null)
+                    continue;
                 if (players[i].lives < 0)
                 {
                     mainText.text = players[i].player.name + " has been SACRIFICED";

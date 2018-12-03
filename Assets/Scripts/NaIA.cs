@@ -19,7 +19,7 @@ public class NaIA : MonoBehaviour
         opponnents = new List<PlayerController>();
         foreach (var p in BrawlCore.Instance.players)
         {
-            if (p != controller)
+            if (p != null &&  p != controller)
             {
                 opponnents.Add(p);
             }
@@ -31,11 +31,6 @@ public class NaIA : MonoBehaviour
     {
         if (BrawlCore.Instance.isRunning == false)
             return;
-        if (controller.playerId == 0)
-        {
-            controller.isBot = false;
-            GameObject.Destroy(this);
-        }
         getNearestPlayer();
         lastHit += Time.deltaTime;
         if (nearestOpponent != null)
