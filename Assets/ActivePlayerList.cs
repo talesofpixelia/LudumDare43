@@ -20,6 +20,4 @@ public class ActivePlayerList : MonoBehaviour {
 	void Update () {
 		
 	}
-
-
 }

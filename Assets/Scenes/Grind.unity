@@ -274,6 +274,31 @@ Prefab:
       propertyPath: commandController
       value: 
       objectReference: {fileID: 2092840227}
+    - target: {fileID: 198746351907283880, guid: ad667a0cc6869244fabfcb2111839188,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198291074372205784, guid: ad667a0cc6869244fabfcb2111839188,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198218205516118806, guid: ad667a0cc6869244fabfcb2111839188,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198966277256636398, guid: ad667a0cc6869244fabfcb2111839188,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198493387537217630, guid: ad667a0cc6869244fabfcb2111839188,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad667a0cc6869244fabfcb2111839188, type: 2}
   m_IsPrefabAsset: 0
@@ -320,18 +345,26 @@ MonoBehaviour:
     PlayerColor: {r: 0.6039216, g: 0, b: 0, a: 1}
     Score: 0
     Weapon: 0
+    Active: 0
+    AI: 0
   - Id: 1
     PlayerColor: {r: 0.20392159, g: 0.6, b: 0, a: 1}
     Score: 0
     Weapon: 0
+    Active: 0
+    AI: 0
   - Id: 2
     PlayerColor: {r: 1, g: 0.8000001, b: 0, a: 1}
     Score: 0
     Weapon: 0
+    Active: 0
+    AI: 0
   - Id: 3
     PlayerColor: {r: 0, g: 0, b: 0.6039216, a: 1}
     Score: 0
     Weapon: 0
+    Active: 0
+    AI: 0
   AvailableWeapons:
   - {fileID: 21300000, guid: 8344713a07cdaef44adf5523465d6973, type: 3}
   - {fileID: 21300000, guid: d015518166592234b823c40de90d5275, type: 3}
@@ -340,7 +373,7 @@ MonoBehaviour:
   ScytheScore: 0
   StaffScore: 0
   DaggerScore: 0
-  ResultsObject: {fileID: 2136545327}
+  activePlayerList: {fileID: 0}
 --- !u!4 &254383433
 Transform:
   m_ObjectHideFlags: 0
@@ -1157,6 +1190,31 @@ Prefab:
       propertyPath: commandController
       value: 
       objectReference: {fileID: 2092840227}
+    - target: {fileID: 198295815264672780, guid: 984924d628b6dec4fbfa95c7dcf6f643,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198038011512840950, guid: 984924d628b6dec4fbfa95c7dcf6f643,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198561250332577330, guid: 984924d628b6dec4fbfa95c7dcf6f643,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198084056730073846, guid: 984924d628b6dec4fbfa95c7dcf6f643,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198993904256821722, guid: 984924d628b6dec4fbfa95c7dcf6f643,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 984924d628b6dec4fbfa95c7dcf6f643, type: 2}
   m_IsPrefabAsset: 0
@@ -1713,7 +1771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1645399431}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Pillars2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1911,14 +1969,39 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1310727830423064, guid: 9e047d1270ebd0e4b88ea4830158778b, type: 2}
+      propertyPath: m_Name
+      value: PlayerBlue
+      objectReference: {fileID: 0}
     - target: {fileID: 114279287409795580, guid: 9e047d1270ebd0e4b88ea4830158778b,
         type: 2}
       propertyPath: commandController
       value: 
       objectReference: {fileID: 2092840227}
-    - target: {fileID: 1310727830423064, guid: 9e047d1270ebd0e4b88ea4830158778b, type: 2}
-      propertyPath: m_Name
-      value: PlayerBlue
+    - target: {fileID: 198114592015328224, guid: 9e047d1270ebd0e4b88ea4830158778b,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198011601230252894, guid: 9e047d1270ebd0e4b88ea4830158778b,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198298993631093740, guid: 9e047d1270ebd0e4b88ea4830158778b,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198366450734675114, guid: 9e047d1270ebd0e4b88ea4830158778b,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198751404717269254, guid: 9e047d1270ebd0e4b88ea4830158778b,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e047d1270ebd0e4b88ea4830158778b, type: 2}
@@ -2227,7 +2310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1999752749}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Pillars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2295,6 +2378,40 @@ Prefab:
       propertyPath: commandController
       value: 
       objectReference: {fileID: 2092840227}
+    - target: {fileID: 198512723440866558, guid: e96f16d25a0bcf54682b63c2151fb3d7,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994431000516514, guid: e96f16d25a0bcf54682b63c2151fb3d7, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198512723440866558, guid: e96f16d25a0bcf54682b63c2151fb3d7,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 4.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 198020447381308874, guid: e96f16d25a0bcf54682b63c2151fb3d7,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198064148507550524, guid: e96f16d25a0bcf54682b63c2151fb3d7,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198898039541090960, guid: e96f16d25a0bcf54682b63c2151fb3d7,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198560855103235746, guid: e96f16d25a0bcf54682b63c2151fb3d7,
+        type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e96f16d25a0bcf54682b63c2151fb3d7, type: 2}
   m_IsPrefabAsset: 0
@@ -2463,24 +2580,34 @@ MonoBehaviour:
     PlayerColor: {r: 0.9019608, g: 0, b: 0, a: 1}
     Score: 0
     Weapon: 0
+    Active: 0
+    AI: 0
   - Id: 0
     PlayerColor: {r: 0, g: 0.5, b: 0.03294754, a: 1}
     Score: 0
     Weapon: 0
+    Active: 0
+    AI: 0
   - Id: 0
     PlayerColor: {r: 0.8867924, g: 0.73328674, b: 0, a: 1}
     Score: 0
     Weapon: 0
+    Active: 0
+    AI: 0
   - Id: 0
     PlayerColor: {r: 0.1745283, g: 0.3103749, b: 0.6981132, a: 1}
     Score: 0
     Weapon: 0
+    Active: 0
+    AI: 0
   ActiveTasks:
   - Player:
       Id: 0
       PlayerColor: {r: 0, g: 0, b: 0, a: 0}
       Score: 0
       Weapon: 0
+      Active: 0
+      AI: 0
     Name: 
     Icon: {fileID: 0}
     done: 0
@@ -2489,6 +2616,8 @@ MonoBehaviour:
       PlayerColor: {r: 0, g: 0, b: 0, a: 0}
       Score: 0
       Weapon: 0
+      Active: 0
+      AI: 0
     Name: 
     Icon: {fileID: 0}
     done: 0
@@ -2497,6 +2626,8 @@ MonoBehaviour:
       PlayerColor: {r: 0, g: 0, b: 0, a: 0}
       Score: 0
       Weapon: 0
+      Active: 0
+      AI: 0
     Name: 
     Icon: {fileID: 0}
     done: 0
@@ -2505,6 +2636,8 @@ MonoBehaviour:
       PlayerColor: {r: 0, g: 0, b: 0, a: 0}
       Score: 0
       Weapon: 0
+      Active: 0
+      AI: 0
     Name: 
     Icon: {fileID: 0}
     done: 0
@@ -2739,37 +2872,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Players:
   - Id: 0
-    PlayerColor:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
+    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
     Score: 0
     Weapon: 0
+    Active: 0
+    AI: 0
   - Id: 0
-    PlayerColor:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
+    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
     Score: 0
     Weapon: 0
+    Active: 0
+    AI: 0
   - Id: 0
-    PlayerColor:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
+    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
     Score: 0
     Weapon: 0
+    Active: 0
+    AI: 0
   - Id: 0
-    PlayerColor:
-      r: 0
-      g: 0
-      b: 0
-      a: 0
+    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
     Score: 0
     Weapon: 0
+    Active: 0
+    AI: 0
 --- !u!4 &2136545328
 Transform:
   m_ObjectHideFlags: 0
