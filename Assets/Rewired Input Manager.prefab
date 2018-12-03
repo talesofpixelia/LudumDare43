@@ -179,8 +179,8 @@ MonoBehaviour:
       _assignKeyboardOnStart: 1
       _excludeFromControllerAutoAssignment: 1
     - _id: 1
-      _name: Player0
-      _descriptiveName: Player0
+      _name: Player 1
+      _descriptiveName: Player 1
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 1
@@ -197,8 +197,8 @@ MonoBehaviour:
       _assignKeyboardOnStart: 1
       _excludeFromControllerAutoAssignment: 0
     - _id: 2
-      _name: Player1
-      _descriptiveName: Player1
+      _name: Player 2
+      _descriptiveName: Player 2
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 1
@@ -212,8 +212,8 @@ MonoBehaviour:
       _assignKeyboardOnStart: 0
       _excludeFromControllerAutoAssignment: 0
     - _id: 3
-      _name: Player2
-      _descriptiveName: Player2
+      _name: Player 3
+      _descriptiveName: Player 3
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 1
@@ -227,8 +227,8 @@ MonoBehaviour:
       _assignKeyboardOnStart: 0
       _excludeFromControllerAutoAssignment: 0
     - _id: 4
-      _name: Player3
-      _descriptiveName: Player3
+      _name: Player 4
+      _descriptiveName: Player 4
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 1
@@ -359,6 +359,24 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
+    - _id: 20
+      _name: joinGame
+      _type: 1
+      _descriptiveName: joinGame
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 21
+      _name: startGame
+      _type: 1
+      _descriptiveName: startGame
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -378,7 +396,7 @@ MonoBehaviour:
     actionCategoryMap:
       list:
       - categoryId: 0
-        actionIds: 
+        actionIds: 1400000015000000
       - categoryId: 1
         actionIds: 0700000008000000090000000a00000010000000110000001200000013000000
       - categoryId: 2
@@ -593,6 +611,28 @@ MonoBehaviour:
         _actionId: 18
         _elementType: 1
         _elementIdentifierId: 22
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 20
+        _elementType: 1
+        _elementIdentifierId: 4
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 21
+        _elementType: 1
+        _elementIdentifierId: 15
         _axisRange: 0
         _invert: 0
         _axisContribution: 0
@@ -846,7 +886,7 @@ MonoBehaviour:
     customControllerMaps: []
     customControllers: []
     playerIdCounter: 5
-    actionIdCounter: 20
+    actionIdCounter: 22
     actionCategoryIdCounter: 3
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 3

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActivePlayerList : MonoBehaviour {
 
-    public Player[] Players = new Player[4];    
+    public List<Player> Players;
 
     private void Awake()
     {

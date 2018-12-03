@@ -900,7 +900,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Player
+  m_text: Player 3 Joined !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e219b91c8801a5d4baf694272090a6aa, type: 2}
   m_sharedMaterial: {fileID: 21036614537703636, guid: e219b91c8801a5d4baf694272090a6aa,
@@ -978,11 +978,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -2347,6 +2347,75 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 373613574}
   m_CullTransparentMesh: 0
+--- !u!1 &377701214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 377701216}
+  - component: {fileID: 377701215}
+  m_Layer: 0
+  m_Name: _PlayerData_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &377701215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 377701214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0db4fcdce6a0641b1fca7f9c72e7e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Players:
+  - Id: 0
+    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
+    Score: 0
+    Weapon: 0
+    isBot: 0
+    isAlive: 0
+    rePlayerID: 
+  - Id: 0
+    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
+    Score: 0
+    Weapon: 0
+    isBot: 0
+    isAlive: 0
+    rePlayerID: 
+  - Id: 0
+    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
+    Score: 0
+    Weapon: 0
+    isBot: 0
+    isAlive: 0
+    rePlayerID: 
+  - Id: 0
+    PlayerColor: {r: 0, g: 0, b: 0, a: 0}
+    Score: 0
+    Weapon: 0
+    isBot: 0
+    isAlive: 0
+    rePlayerID: 
+--- !u!4 &377701216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 377701214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.561221, y: 2.7020018, z: -0.10238018}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &406430584
 GameObject:
   m_ObjectHideFlags: 0
@@ -4689,7 +4758,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Player
+  m_text: Player 4 Joined !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e219b91c8801a5d4baf694272090a6aa, type: 2}
   m_sharedMaterial: {fileID: 21036614537703636, guid: e219b91c8801a5d4baf694272090a6aa,
@@ -4767,11 +4836,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -7706,6 +7775,56 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1354150676}
   m_CullTransparentMesh: 0
+--- !u!1 &1355886713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1355886715}
+  - component: {fileID: 1355886714}
+  m_Layer: 0
+  m_Name: ReinitPlayerData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1355886714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1355886713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661e65889ef38324e9cef95d859327b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toJoinText:
+  - {fileID: 1333914465}
+  - {fileID: 672752387}
+  - {fileID: 1417524033}
+  - {fileID: 144125710}
+  joinedText:
+  - {fileID: 1640831801}
+  - {fileID: 1493289084}
+  - {fileID: 205436528}
+  - {fileID: 924530848}
+--- !u!4 &1355886715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1355886713}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 589.39, y: 133.51, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1357078963
 GameObject:
   m_ObjectHideFlags: 0
@@ -8360,7 +8479,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Player
+  m_text: Player 2 Joined !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e219b91c8801a5d4baf694272090a6aa, type: 2}
   m_sharedMaterial: {fileID: 21036614537703636, guid: e219b91c8801a5d4baf694272090a6aa,
@@ -8438,11 +8557,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -9378,7 +9497,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Player
+  m_text: Player 1 Joined !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e219b91c8801a5d4baf694272090a6aa, type: 2}
   m_sharedMaterial: {fileID: 21036614537703636, guid: e219b91c8801a5d4baf694272090a6aa,
@@ -9448,19 +9567,19 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1640831803}
-    characterCount: 6
+    characterCount: 17
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 3
+    wordCount: 3
     linkCount: 0
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -10694,6 +10813,49 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1814798438}
   m_CullTransparentMesh: 0
+--- !u!1 &1833762594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1833762596}
+  - component: {fileID: 1833762595}
+  m_Layer: 0
+  m_Name: Rewired Initializer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1833762595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1833762594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1784236749, guid: 09c9b883b79ef864a99683bb36c5776d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputManagerPrefab: {fileID: 1139403953213372, guid: 767b14edad281e74f979eaca460b793c,
+    type: 2}
+  _destroySelf: 1
+--- !u!4 &1833762596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1833762594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1863607854
 GameObject:
   m_ObjectHideFlags: 0
