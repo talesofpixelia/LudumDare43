@@ -35,7 +35,7 @@ public class CommandController : MonoBehaviour {
 	void Start () {
         State = READY;
         TopRow.SetTasks(RollNewTasks());
-        ActiveTasks = RollNewTasks();
+        ActiveTasks = EmptyTasks();
         BotRow.SetTasks(ActiveTasks);
         TimeLeft = TimePerTask;
         TasksRemaining = TasksPerPlayer;
@@ -122,6 +122,17 @@ public class CommandController : MonoBehaviour {
             tasks[i] = new Task(Players[i], sprites[i], names[i]);
         }
         TasksRemaining--;
+        return tasks;
+    }
+
+    private Task[] EmptyTasks()
+    {
+        Task[] tasks = new Task[4];
+        
+        for (int i = 0; i < 4; i++)
+        {
+            tasks[i] = new Task(Players[i], EmptySymbol, "");
+        }
         return tasks;
     }
 
