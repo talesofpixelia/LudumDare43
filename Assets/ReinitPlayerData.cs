@@ -15,15 +15,13 @@ public class ReinitPlayerData : MonoBehaviour
     // Use this for initialization
     void Start () {
         activePlayerList = GameObject.Find("_PlayerData_").GetComponent<ActivePlayerList>();
-        activePlayerList.Players = new List<Player>();
         for (int i = 0; i < 4; i++)
         {
-            var player = new Player();
+            var player = activePlayerList.Players[i];
             player.isBot = true;
             player.isAlive = true;
             player.Score = 0;
             player.Id = i;
-            activePlayerList.Players.Add(player);
         }
         rePlayerList = ReInput.players.AllPlayers;
     }
