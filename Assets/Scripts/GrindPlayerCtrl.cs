@@ -12,11 +12,11 @@ public class GrindPlayerCtrl : MonoBehaviour {
     private bool leftPressed = false;
     private bool rightPressed = false;
     public CommandController commandController;
-    private ParticleSystem oPart;
-    private ParticleSystem xPart;
-    private ParticleSystem yPart;
-    private ParticleSystem aPart;
-    private ParticleSystem bPart;
+    public ParticleSystem oPart;
+    public ParticleSystem xPart;
+    public ParticleSystem yPart;
+    public ParticleSystem aPart;
+    public ParticleSystem bPart;
    
 
 
