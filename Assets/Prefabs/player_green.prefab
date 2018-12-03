@@ -350,8 +350,14 @@ MonoBehaviour:
     Id: 1
     PlayerColor: {r: 0.20392159, g: 0.6, b: 0, a: 1}
     Score: 0
+    Weapon: 0
   PersonalScore: {fileID: 0}
   commandController: {fileID: 0}
+  oPart: {fileID: 0}
+  xPart: {fileID: 0}
+  yPart: {fileID: 0}
+  aPart: {fileID: 0}
+  bPart: {fileID: 0}
 --- !u!198 &198020447381308874
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -484,7 +490,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.1
+      scalar: 3.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5074,7 +5080,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.1
+      scalar: 3.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -9664,7 +9670,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.1
+      scalar: 3.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -14254,7 +14260,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.1
+      scalar: 3.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -18844,7 +18850,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.1
+      scalar: 3.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
