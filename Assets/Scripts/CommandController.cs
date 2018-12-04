@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,16 +26,19 @@ public class CommandController : MonoBehaviour {
     public Animator ScoreAnimator;
     public float SceneChangeTimer;
     public GrindPlayerManager playerManager;
+    public float Timer = 3;
+    public TextMeshPro CountDownText;
     
     
     const int CHANGING = 0;
     const int READY = 1;
     const int SCORE = 2;
+    const int COUNTDOWN = 4;
 
 
 	// Use this for initialization
 	void Start () {
-        State = READY;
+        State = COUNTDOWN;
         TopRow.SetTasks(RollNewTasks());
         ActiveTasks = EmptyTasks();
         BotRow.SetTasks(ActiveTasks);
@@ -44,6 +48,22 @@ public class CommandController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (COUNTDOWN == State)
+        {
+            Timer -= Time.deltaTime;
+            if (Timer <= 0)
+            {
+                StateToReady();
+                CountDownText.text = "Worship!";
+            }
+            else if (Timer <= 1)
+            {
+                CountDownText.text = "1";
+            } else if (Timer <= 2)
+            {
+                CountDownText.text = "2";
+            }
+        }
         if (SCORE == State)
         {
             SceneChangeTimer -= Time.deltaTime;
@@ -167,5 +187,7 @@ public class CommandController : MonoBehaviour {
         State = SCORE;
         ScoreAnimator.SetBool("IsScore", true);
     }
+
+
 
 }
