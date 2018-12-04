@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     public bool canJump = true;
     public bool canReJump = true;
     float jumpDelay = 0;
-    float jumpForce = 600;
+    float jumpForce = 800;
     ContactDetector contactDetector;
     public float shieldAmount = 1;
     public bool canUseShield = true;
@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour {
     public float lastHit = 0;
     float stunDelay = 0.3f;
     public GameObject dieParticle;
+    public string playerName;
 
     public WeaponAnimation[] weapons;
     public int weaponId = 0;
@@ -67,7 +68,6 @@ public class PlayerController : MonoBehaviour {
         player = ReInput.players.GetPlayer(playerId);
         playerSkin.sprite = playerSkins[playerId];
         lives = 3;
-        Debug.Log(player.name);
     }
 
     public bool sameSign(float val1, float val2)
@@ -128,6 +128,7 @@ public class PlayerController : MonoBehaviour {
         for (int i = 0; i < 4; i++)
             BrawlCore.Instance.InfoCards[playerId].weapons[i].gameObject.SetActive(false);
         BrawlCore.Instance.InfoCards[playerId].weapons[weaponId].gameObject.SetActive(true);
+        BrawlCore.Instance.InfoCards[playerId].playerName.text = playerName;
         for (int i = 0; i < 3; i++)
             BrawlCore.Instance.InfoCards[playerId].lives[i].gameObject.SetActive(lives > i ? true : false);
         BrawlCore.Instance.InfoCards[playerId].playerDamage.text = damage.ToString();

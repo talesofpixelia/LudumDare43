@@ -38,6 +38,7 @@ public class BrawlCore : Singleton<BrawlCore> {
                 player.playerId = i;
                 players[i] = player;
                 player.weaponId = activePlayerList.Players[i].Weapon;
+                player.playerName = activePlayerList.Players[i].rePlayerID;
                 if (activePlayerList.Players[i].isBot)
                 {
                     player.gameObject.AddComponent<NaIA>();
@@ -96,6 +97,7 @@ public class BrawlCore : Singleton<BrawlCore> {
                 if (players[i].lives < 0)
                 {
                     mainText.text = activePlayerList.Players[i].rePlayerID + " has been SACRIFICED";
+                    activePlayerList.Players[i].isAlive = false;
                     someoneHasBeenSacrificed = true;
                 }
                 players[i].rb.simulated = false;
@@ -145,6 +147,7 @@ public class BrawlCore : Singleton<BrawlCore> {
         }
         yield return new WaitForSeconds(2);
         Debug.Log("azfazf");
+
         if (playersAliveAmount < 2 || nonBotPlayersAlive <= 0)
             SceneManager.LoadScene(3);
         else
