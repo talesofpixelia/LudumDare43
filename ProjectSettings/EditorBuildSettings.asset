@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Grind.unity
     guid: 7130e2f58524531419c96c6dd6e3f8e6
   - enabled: 1
-    path: Assets/brawl.unity
+    path: Assets/Scenes/brawl.unity
     guid: 4d325af7e0677e04883a05bacb4e43dd
   - enabled: 1
     path: Assets/Scenes/End.unity
