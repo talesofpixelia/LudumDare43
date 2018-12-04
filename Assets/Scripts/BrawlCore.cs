@@ -98,6 +98,8 @@ public class BrawlCore : Singleton<BrawlCore> {
                 {
                     mainText.text = activePlayerList.Players[i].rePlayerID + " has been SACRIFICED";
                     activePlayerList.Players[i].isAlive = false;
+                    Debug.Log(string.Format("Deactivated"));
+
                     someoneHasBeenSacrificed = true;
                 }
                 players[i].rb.simulated = false;
@@ -112,8 +114,24 @@ public class BrawlCore : Singleton<BrawlCore> {
 
     IEnumerator goToGrind()
     {
+        int playersAliveAmount = 0;
+        int nonBotPlayersAlive = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            if (activePlayerList.Players[i].isAlive)
+            {
+                playersAliveAmount++;
+                if (!activePlayerList.Players[i].isBot)
+                    nonBotPlayersAlive++;
+            }
+
+        }
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(1);
+
+        if (playersAliveAmount < 2 || nonBotPlayersAlive <= 0)
+            SceneManager.LoadScene(3);
+        else
+            SceneManager.LoadScene(1);
     }
 
     IEnumerator goToGrindAdterSacrificingRandom()
@@ -124,26 +142,33 @@ public class BrawlCore : Singleton<BrawlCore> {
         yield return new WaitForSeconds(1.5f);
         bool hasBeenSacrificed = false;
         int sacreficedId = 0;
+
         while (hasBeenSacrificed)
         {
             sacreficedId = Random.Range(0, 3);
+
             if (!activePlayerList.Players[sacreficedId].isAlive)
                 continue;
-            activePlayerList.Players[sacreficedId].isAlive = false;
+
+            
+
             hasBeenSacrificed = true;
         }
+
         mainText.text = activePlayerList.Players[sacreficedId].rePlayerID + " !!";
+        activePlayerList.Players[sacreficedId].isAlive = false;
+
         int playersAliveAmount = 0;
         int nonBotPlayersAlive = 0;
+
         for (int i = 0; i < 4; i++)
         {
-            if (activePlayerList.Players[sacreficedId].isAlive)
+            if (activePlayerList.Players[i].isAlive)
             {
                 playersAliveAmount++;
-                if (!activePlayerList.Players[sacreficedId].isBot)
+                if (!activePlayerList.Players[i].isBot)
                     nonBotPlayersAlive++;
             }
-
         }
         yield return new WaitForSeconds(2);
         Debug.Log("azfazf");

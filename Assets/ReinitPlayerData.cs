@@ -35,6 +35,7 @@ public class ReinitPlayerData : MonoBehaviour
             {
                 var newPlayer = activePlayerList.Players[i - 1];
                 newPlayer.isBot = false;
+                newPlayer.rePlayerID = newPlayer.isBot ? string.Format("Bot {0}", i) : string.Format("Player {0}", i);
                 toJoinText[i - 1].SetActive(false);
                 joinedText[i - 1].SetActive(true);
             }
