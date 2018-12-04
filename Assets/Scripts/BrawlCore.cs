@@ -120,14 +120,14 @@ public class BrawlCore : Singleton<BrawlCore> {
         {
             if (activePlayerList.Players[i].isAlive && !activePlayerList.Players[i].isBot)
             {
-                playersAliveAmount++;
-            }
-            else if (activePlayerList.Players[i].isAlive && activePlayerList.Players[i].isBot)
-            {
                 nonBotPlayersAlive++;
             }
+            else if (activePlayerList.Players[i].isAlive)
+            {
+                playersAliveAmount++;
+            }
         }
-        if (playersAliveAmount < 2)
+        if (playersAliveAmount == 1 || nonBotPlayersAlive == 0)
             SceneManager.LoadScene(3);
         else
             SceneManager.LoadScene(1);
@@ -156,16 +156,16 @@ public class BrawlCore : Singleton<BrawlCore> {
         {
             if (activePlayerList.Players[i].isAlive && !activePlayerList.Players[i].isBot)
             {
-                playersAliveAmount++;
-            } else if (activePlayerList.Players[i].isAlive && activePlayerList.Players[i].isBot)
-            {
                 nonBotPlayersAlive++;
+            } else if (activePlayerList.Players[i].isAlive)
+            {
+                playersAliveAmount++;
             }
         }
         yield return new WaitForSeconds(2);
         Debug.Log("azfazf");
 
-        if (playersAliveAmount < 2)
+        if (playersAliveAmount == 1 || nonBotPlayersAlive == 0)
             SceneManager.LoadScene(3);
         else
             SceneManager.LoadScene(1);
