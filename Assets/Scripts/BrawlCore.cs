@@ -112,8 +112,25 @@ public class BrawlCore : Singleton<BrawlCore> {
 
     IEnumerator goToGrind()
     {
+        
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(1);
+        int playersAliveAmount = 0;
+        int nonBotPlayersAlive = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            if (activePlayerList.Players[i].isAlive && !activePlayerList.Players[i].isBot)
+            {
+                playersAliveAmount++;
+            }
+            else if (activePlayerList.Players[i].isAlive && activePlayerList.Players[i].isBot)
+            {
+                nonBotPlayersAlive++;
+            }
+        }
+        if (playersAliveAmount < 2)
+            SceneManager.LoadScene(3);
+        else
+            SceneManager.LoadScene(1);
     }
 
     IEnumerator goToGrindAdterSacrificingRandom()
@@ -124,7 +141,7 @@ public class BrawlCore : Singleton<BrawlCore> {
         yield return new WaitForSeconds(1.5f);
         bool hasBeenSacrificed = false;
         int sacreficedId = 0;
-        while (hasBeenSacrificed)
+        while (!hasBeenSacrificed)
         {
             sacreficedId = Random.Range(0, 3);
             if (!activePlayerList.Players[sacreficedId].isAlive)
@@ -137,18 +154,18 @@ public class BrawlCore : Singleton<BrawlCore> {
         int nonBotPlayersAlive = 0;
         for (int i = 0; i < 4; i++)
         {
-            if (activePlayerList.Players[sacreficedId].isAlive)
+            if (activePlayerList.Players[i].isAlive && !activePlayerList.Players[i].isBot)
             {
                 playersAliveAmount++;
-                if (!activePlayerList.Players[sacreficedId].isBot)
-                    nonBotPlayersAlive++;
+            } else if (activePlayerList.Players[i].isAlive && activePlayerList.Players[i].isBot)
+            {
+                nonBotPlayersAlive++;
             }
-
         }
         yield return new WaitForSeconds(2);
         Debug.Log("azfazf");
 
-        if (playersAliveAmount < 2 || nonBotPlayersAlive <= 0)
+        if (playersAliveAmount < 2)
             SceneManager.LoadScene(3);
         else
             SceneManager.LoadScene(1);

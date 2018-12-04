@@ -16,14 +16,16 @@ public class ReinitPlayerData : MonoBehaviour
     // Use this for initialization
     void Start () {
         activePlayerList = GameObject.Find("_PlayerData_").GetComponent<ActivePlayerList>();
+        rePlayerList = ReInput.players.AllPlayers;
         for (int i = 0; i < 4; i++)
         {
             var player = activePlayerList.Players[i];
             player.isAlive = true;
             player.Score = 0;
             player.Id = i;
+            player.rePlayerID = rePlayerList[i+1].descriptiveName;
         }
-        rePlayerList = ReInput.players.AllPlayers;
+        
     }
 
     // Update is called once per frame
