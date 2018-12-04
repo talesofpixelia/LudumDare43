@@ -24,6 +24,7 @@ public class CommandController : MonoBehaviour {
     public int TasksRemaining;
     public Animator ScoreAnimator;
     public float SceneChangeTimer;
+    public GrindPlayerManager playerManager;
     
     
     const int CHANGING = 0;
@@ -48,7 +49,7 @@ public class CommandController : MonoBehaviour {
             SceneChangeTimer -= Time.deltaTime;
             if (SceneChangeTimer < 0)
             {
-                SceneManager.LoadScene("brawl");
+                SceneManager.LoadScene(2);
             }
         }
         if (TasksRemaining > 0)
@@ -97,6 +98,12 @@ public class CommandController : MonoBehaviour {
         ActiveTasks = BotRow.GetTasks();
         State = READY;
         TopRow.SetTasks(RollNewTasks());
+        for (int i = 0; i < 4; i++)
+        {
+            Task t = ActiveTasks[i];
+            playerManager.PlayerGOs[t.Player.Id].GetComponentInChildren<GrindPlayerCtrl>().ShowAction(t.Name);
+        }
+        
     }
 
     private Task[] RollNewTasks()
@@ -110,7 +117,6 @@ public class CommandController : MonoBehaviour {
             sprites[i] = SymbolSprites[id];
             names[i] = TaskNames[id];
         }
-        
         Players.Shuffle();
         for(int i = 0; i < 4; i++)
         {
@@ -122,6 +128,7 @@ public class CommandController : MonoBehaviour {
                 n = "";
             }
             tasks[i] = new Task(Players[i],s ,n );
+            
         }
         TasksRemaining--;
         PlayerOrder = 0;
@@ -142,7 +149,7 @@ public class CommandController : MonoBehaviour {
     public int DoTask (int playerId, string action)
     {
         if (State == CHANGING) return 0;
-        int score = -50;
+        int score = -1;
         for(int i = 0; i < ActiveTasks.Length; i++)
         {
             if (ActiveTasks[i].Player.Id == playerId && ActiveTasks[i].Name == action && !ActiveTasks[i].done)
