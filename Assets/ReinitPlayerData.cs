@@ -23,7 +23,7 @@ public class ReinitPlayerData : MonoBehaviour
             player.isAlive = true;
             player.Score = 0;
             player.Id = i;
-            player.rePlayerID = rePlayerList[i+1].descriptiveName;
+            player.rePlayerID = string.Format("Bot {0}", i);
         }
         
     }
@@ -37,7 +37,7 @@ public class ReinitPlayerData : MonoBehaviour
             {
                 var newPlayer = activePlayerList.Players[i - 1];
                 newPlayer.isBot = false;
-                newPlayer.rePlayerID = newPlayer.isBot ? string.Format("Bot {0}", i) : string.Format("Player {0}", i);
+                newPlayer.rePlayerID = rePlayerList[i].descriptiveName;
                 toJoinText[i - 1].SetActive(false);
                 joinedText[i - 1].SetActive(true);
             }
